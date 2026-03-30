@@ -5,6 +5,7 @@ description = "Autoresearch-style LoRA experiment scaffold for MLX fine-tuning"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+  "litellm>=1.74.0",
   "pyyaml>=6.0",
   "tqdm>=4.66.0",
 ]
@@ -18,4 +19,3 @@ mlx = [
 [build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
-

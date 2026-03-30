@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-import json
 import os
 from dataclasses import dataclass
 from typing import Any
-from urllib import error, request
+
+from litellm import completion
 
 
 @dataclass
@@ -28,6 +28,7 @@ class DeepSeekDistiller:
         self.base_url = (base_url or os.getenv("DEEPSEEK_BASE_URL") or os.getenv("OPENAI_BASE_URL") or "").rstrip("/")
         self.api_key = api_key or os.getenv("DEEPSEEK_API_KEY") or os.getenv("OPENAI_API_KEY") or ""
         self.model = model
+        self.provider_model = model if "/" in model else f"openai/{model}"
         self.timeout = timeout
 
     @property
@@ -86,8 +87,15 @@ class DeepSeekDistiller:
         }
 
         try:
-            response = self._post_json(f"{self.base_url}/chat/completions", payload)
-            content = response["choices"][0]["message"]["content"].strip()
+            response = completion(
+                model=self.provider_model,
+                messages=payload["messages"],
+                temperature=payload["temperature"],
+                api_base=self.base_url,
+                api_key=self.api_key,
+                timeout=self.timeout,
+            )
+            content = response.choices[0].message.content.strip()
             return DistillResult(
                 content=content,
                 used_api=True,
@@ -102,22 +110,3 @@ class DeepSeekDistiller:
                 teacher_model_version="deepseek-template-fallback",
                 error=str(exc),
             )
-
-    def _post_json(self, url: str, payload: dict[str, Any]) -> dict[str, Any]:
-        data = json.dumps(payload).encode("utf-8")
-        req = request.Request(
-            url,
-            data=data,
-            headers={
-                "Content-Type": "application/json",
-                "Authorization": f"Bearer {self.api_key}",
-            },
-            method="POST",
-        )
-        try:
-            with request.urlopen(req, timeout=self.timeout) as resp:
-                return json.loads(resp.read().decode("utf-8"))
-        except error.HTTPError as exc:
-            body = exc.read().decode("utf-8", errors="replace")
-            raise RuntimeError(f"http_{exc.code}: {body}") from exc
-
