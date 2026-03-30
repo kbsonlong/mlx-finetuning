@@ -1,0 +1,15 @@
+stage1_quick_screen:
+  fixed:
+    optimizer: "adam"
+    grad_checkpoint: true
+  random:
+    lora_rank: [4, 8, 16, 32]
+    lora_alpha: [8, 16, 32, 64]
+    lora_dropout: [0.0, 0.05, 0.1]
+    learning_rate: [1.0e-5, 3.0e-5, 5.0e-5, 1.0e-4]
+    batch_size: [4, 8]
+    warmup_ratio: [0.0, 0.1, 0.2]
+
+stage2_fine_validation:
+  seeds: [42, 123, 456]
+

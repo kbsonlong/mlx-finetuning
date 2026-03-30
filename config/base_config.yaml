@@ -1,0 +1,36 @@
+data:
+  raw_dir: "data/raw"
+  frozen_dir: "data/frozen"
+  mlx_dir: "data/mlx_lm"
+  train: "data/mlx_lm/train.jsonl"
+  valid: "data/mlx_lm/valid.jsonl"
+  test: "data/mlx_lm/test.jsonl"
+
+lora:
+  rank: 8
+  alpha: 16
+  dropout: 0.05
+  layers: 16
+
+training:
+  batch_size: 4
+  iters: 100
+  learning_rate: 5.0e-5
+  max_seq_length: 512
+  optimizer: "adam"
+  grad_checkpoint: true
+  lr_schedule: "constant"
+  random_seed: 42
+
+evaluation:
+  valid_sample_limit: 200
+
+output:
+  adapter_dir: "outputs/adapters"
+  log_dir: "outputs/logs"
+  results_tsv: "outputs/results.tsv"
+
+constraints:
+  max_memory_gb: 16
+  time_budget_minutes: 15
+

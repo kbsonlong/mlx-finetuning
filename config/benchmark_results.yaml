@@ -1,0 +1,93 @@
+benchmark:
+  baseline:
+    val_loss: 0.725
+    train_time_minutes: 5.411666666666666
+  recommendations:
+    time_budget_minutes: 15.57
+    max_memory_gb: 16.0
+    target_val_loss: 0.658333
+  runs:
+  - experiment_id: exp_20260330_161218_552691
+    dataset_id: ds_20260330_145725
+    mode: mlx
+    val_loss: '0.725000'
+    val_accuracy: '0.579710'
+    perplexity: '2.064731'
+    tokens_evaluated: '18'
+    train_time: '324.70'
+    lora_rank: '8'
+    learning_rate: 5e-05
+    batch_size: '4'
+    preset: baseline
+    adapter_file: outputs/adapters/exp_20260330_161218_552691/adapters.safetensors
+    adapter_path: outputs/adapters/exp_20260330_161218_552691
+  - experiment_id: exp_20260330_161745_131362
+    dataset_id: ds_20260330_145725
+    mode: mlx
+    val_loss: '0.791667'
+    val_accuracy: '0.558140'
+    perplexity: '2.207072'
+    tokens_evaluated: '18'
+    train_time: '167.27'
+    lora_rank: '4'
+    learning_rate: 5e-05
+    batch_size: '8'
+    preset: fast_test
+    adapter_file: outputs/adapters/exp_20260330_161745_131362/adapters.safetensors
+    adapter_path: outputs/adapters/exp_20260330_161745_131362
+  - experiment_id: exp_20260330_162034_176700
+    dataset_id: ds_20260330_145725
+    mode: mlx
+    val_loss: '0.794444'
+    val_accuracy: '0.557276'
+    perplexity: '2.213211'
+    tokens_evaluated: '18'
+    train_time: '312.75'
+    lora_rank: '16'
+    learning_rate: 5e-05
+    batch_size: '4'
+    preset: large_rank
+    adapter_file: outputs/adapters/exp_20260330_162034_176700/adapters.safetensors
+    adapter_path: outputs/adapters/exp_20260330_162034_176700
+  - experiment_id: exp_20260330_162548_685813
+    dataset_id: ds_20260330_145725
+    mode: mlx
+    val_loss: '0.895833'
+    val_accuracy: '0.527473'
+    perplexity: '2.449376'
+    tokens_evaluated: '18'
+    train_time: '310.99'
+    lora_rank: '8'
+    learning_rate: 5e-05
+    batch_size: '4'
+    preset: long_seq
+    adapter_file: outputs/adapters/exp_20260330_162548_685813/adapters.safetensors
+    adapter_path: outputs/adapters/exp_20260330_162548_685813
+  - experiment_id: exp_20260330_163101_589773
+    dataset_id: ds_20260330_145725
+    mode: mlx
+    val_loss: '0.740278'
+    val_accuracy: '0.574621'
+    perplexity: '2.096518'
+    tokens_evaluated: '18'
+    train_time: '634.14'
+    lora_rank: '8'
+    learning_rate: 5e-05
+    batch_size: '4'
+    preset: deep_train
+    adapter_file: outputs/adapters/exp_20260330_163101_589773/adapters.safetensors
+    adapter_path: outputs/adapters/exp_20260330_163101_589773
+  - experiment_id: exp_20260330_164137_612799
+    dataset_id: ds_20260330_145725
+    mode: mlx
+    val_loss: '0.658333'
+    val_accuracy: '0.603015'
+    perplexity: '1.931570'
+    tokens_evaluated: '18'
+    train_time: '364.35'
+    lora_rank: '8'
+    learning_rate: 5e-05
+    batch_size: '2'
+    preset: small_batch
+    adapter_file: outputs/adapters/exp_20260330_164137_612799/adapters.safetensors
+    adapter_path: outputs/adapters/exp_20260330_164137_612799

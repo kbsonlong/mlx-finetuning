@@ -1,0 +1,22 @@
+baseline:
+  model_path: "models/Qwen3.5-9B-MLX-4bit"
+  data: "data/mlx_lm"
+
+  lora:
+    rank: 8
+    alpha: 16
+    dropout: 0.05
+    layers: 16
+
+  training:
+    batch_size: 4
+    iters: 100
+    learning_rate: 5.0e-5
+    max_seq_length: 512
+    optimizer: "adam"
+    grad_checkpoint: true
+
+  constraints:
+    max_memory_gb: 16
+    time_budget_minutes: 15
+

@@ -1,0 +1,21 @@
+[project]
+name = "mlx-autoresearch"
+version = "0.1.0"
+description = "Autoresearch-style LoRA experiment scaffold for MLX fine-tuning"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pyyaml>=6.0",
+  "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+mlx = [
+  "mlx>=0.18.0",
+  "mlx-lm>=0.19.0",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+

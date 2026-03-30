@@ -1,0 +1,8 @@
+outputs/
+data/mlx_lm/
+data/frozen/
+data/raw/
+__pycache__/
+.pytest_cache/
+.venv/
+

@@ -1,0 +1,12 @@
+What is a Kubernetes deployment?
+How does a service differ from an ingress?
+Why use a liveness probe?
+What problem does HorizontalPodAutoscaler solve?
+How should secrets be handled in production clusters?
+When should you use a StatefulSet instead of a Deployment?
+How do readiness probes affect traffic routing?
+What causes CrashLoopBackOff and how do you debug it?
+How should ConfigMaps be managed across environments?
+What is the difference between requests and limits in Kubernetes?
+How do rolling updates work in Kubernetes?
+How should you expose an internal service securely?
